@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 str1 = "Holberton"
 str2 = "School"
-# print the concatenated string
-print("Welcome to " + str1 + " " + str2 + "!")
+# Concatenate the strings to form the welcome message
+message = "Welcome to " + str1 + " " + str2 + "!"
+print(message)
