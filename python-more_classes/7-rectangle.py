@@ -1,15 +1,17 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class with instance counting and customizable print symbol."""
+"""Defines a Rectangle class with instance counting and
+customizable print symbol."""
 
 
 class Rectangle:
-    """Represents a rectangle with width, height, and a customizable print symbol."""
+    """Represents a rectangle with width, height, and a
+    customizable print symbol."""
 
     number_of_instances = 0  # Compte le nombre d'instances vivantes
     print_symbol = "#"       # Symbole par défaut pour afficher le rectangle
 
     def __init__(self, width=0, height=0):
-        """Initialise rectangle avec largeur et hauteur optionnelles."""
+        """Initialize rectangle with optional width and height."""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
@@ -42,29 +44,30 @@ class Rectangle:
 
     # ----- METHODS -----
     def area(self):
-        """Retourne l'aire du rectangle."""
+        """Return the area of the rectangle."""
         return self.__width * self.__height
 
     def perimeter(self):
-        """Retourne le périmètre du rectangle."""
+        """Return the perimeter of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Affiche le rectangle avec le symbole print_symbol."""
+        """Print the rectangle with the symbol print_symbol."""
         if self.__width == 0 or self.__height == 0:
             return ""
 
-        symbol = str(self.print_symbol)  # Convertir en chaîne pour l'affichage
+        symbol = str(self.print_symbol)  # Convert any type to string
         lines = [symbol * self.__width for _ in range(self.__height)]
         return "\n".join(lines)
 
     def __repr__(self):
-        """Retourne une représentation du rectangle pour eval()."""
+        """Return a string representation to recreate the object."""
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
-        """Message à la suppression et décrémente le compteur d'instances."""
+        """Print a message when an instance is deleted and
+        decrement the instance counter."""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
