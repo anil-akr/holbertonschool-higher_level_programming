@@ -3,6 +3,7 @@
 Defines a Student class with serialization/deserialization
 """
 
+
 class Student:
     """Represents a student with first name, last name, and age"""
 
@@ -21,7 +22,8 @@ class Student:
     def to_json(self, attrs=None):
         """Retrieve a dictionary representation of a Student instance
 
-        If attrs is a list of strings, only attributes in this list are included.
+        If attrs is a list of strings, only attributes in this list are
+        included.
         Otherwise, all attributes are included.
 
         Args:
