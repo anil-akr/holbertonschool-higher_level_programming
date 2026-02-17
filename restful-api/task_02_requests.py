@@ -1,9 +1,18 @@
 import requests
 import csv
 
+"""
+Module that fetches and processes posts from an API.
+"""
+
 URL = "https://jsonplaceholder.typicode.com/posts"
 
 def fetch_and_print_posts():
+    """
+    Fetches all posts from JSONPlaceholder API and prints
+    the status code followed by the titles of all posts
+    if the request is successful.
+    """
     response = requests.get(URL)
     print(f"Status code: {response.status_code}")
 
@@ -14,6 +23,11 @@ def fetch_and_print_posts():
             print(post["title"])
         
 def fetch_and_save_posts():
+    """
+    Fetches all posts from JSONPlaceholder API and saves
+    selected fields (id, title, body) into a CSV file
+    named 'posts.csv' if the request is successful.
+    """
     response = requests.get(URL)
     
     if response.status_code == 200:
@@ -22,7 +36,7 @@ def fetch_and_save_posts():
         posts_list = [
             {
                 "id": post["id"],
-                "title": post["title"]
+                "title": post["title"],
                 "body": post["body"]
             }
             for post in data
