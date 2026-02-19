@@ -7,6 +7,7 @@ Module that fetches and processes posts from an API.
 
 URL = "https://jsonplaceholder.typicode.com/posts"
 
+
 def fetch_and_print_posts():
     """
     Fetches all posts from JSONPlaceholder API and prints
@@ -21,7 +22,8 @@ def fetch_and_print_posts():
 
         for post in data:
             print(post["title"])
-        
+
+
 def fetch_and_save_posts():
     """
     Fetches all posts from JSONPlaceholder API and saves
@@ -29,7 +31,7 @@ def fetch_and_save_posts():
     named 'posts.csv' if the request is successful.
     """
     response = requests.get(URL)
-    
+
     if response.status_code == 200:
         data = response.json()
 
