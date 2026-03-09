@@ -11,7 +11,8 @@ from model_state import Base, State
 if __name__ == "__main__":
     if len(sys.argv) != 4:
         print(
-            "Usage: ./13-model_state_delete_a.py <username> <password> <database>"
+            "Usage: ./13-model_state_delete_a.py "
+            "<username> <password> <database>"
         )
         sys.exit(1)
 
@@ -32,7 +33,9 @@ if __name__ == "__main__":
     session = Session()
 
     # Récupération des states contenant 'a'
-    states_to_delete = session.query(State).filter(State.name.ilike('%a%')).all()
+    states_to_delete = session.query(State)\
+        .filter(State.name.ilike('%a%'))\
+        .all()
 
     for state in states_to_delete:
         session.delete(state)
