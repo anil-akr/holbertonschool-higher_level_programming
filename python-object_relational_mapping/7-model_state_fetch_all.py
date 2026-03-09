@@ -8,16 +8,21 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 if __name__ == "__main__":
-    # Vérification des arguments (optionnelle, mais utile pour éviter IndexError)
     if len(sys.argv) != 4:
-        print("Usage: ./7-model_state_fetch_all.py <username> <password> <database>")
+        print(
+            "Usage: ./7-model_state_fetch_all.py <username> <password> <database>"
+        )
         sys.exit(1)
 
-    username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
-    # Création de l’engine
+    # Création de l’engine avec URL multi-lignes pour respecter PEP8
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'.format(username, password, database),
+        'mysql+mysqldb://{}:{}@localhost/{}'.format(
+            username, password, database
+        ),
         pool_pre_ping=True
     )
 
@@ -29,6 +34,6 @@ if __name__ == "__main__":
     states = session.query(State).order_by(State.id).all()
 
     for state in states:
-        print(f"{state.id}: {state.name}")
+        print("{}: {}".format(state.id, state.name))
 
     session.close()
