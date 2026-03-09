@@ -17,17 +17,17 @@ if __name__ == "__main__":
 
     # Create cursor to execute SQL queries
     cursor = db.cursor()
-    
+
     # Execute query and sort by states.id
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
-    
+
     # Fetch all results
     rows = cursor.fetchall()
-    
+
     # Print results in the required format
     for row in rows:
         print(row)
-    
+
     # Close cursor and connection
     cursor.close()
     db.close()
