@@ -7,7 +7,9 @@ import sys
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: ./2-my_filter_states.py <user> <passwd> <db> <state_name>")
+        print(
+            "Usage: ./2-my_filter_states.py <user> <passwd> <db> <state_name>"
+        )
         sys.exit(1)
 
     db = MySQLdb.connect(
