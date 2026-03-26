@@ -20,7 +20,7 @@ def items():
     with open("items.json") as f:
         data = json.load(f)
     items_list = data.get("items", [])
-    return render_template("items.html", items=item.list)
+    return render_template("items.html", items=items.list)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
