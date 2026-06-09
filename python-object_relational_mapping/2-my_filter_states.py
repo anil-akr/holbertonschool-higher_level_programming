@@ -19,7 +19,8 @@ if __name__ == "__main__":
     )
 
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id ASC;".format(state_name_searched))
+    cursor.execute("SELECT * FROM states WHERE name = '{}' "
+                   "ORDER BY id ASC;".format(state_name_searched))
     rows = cursor.fetchall()
 
     for x in rows:

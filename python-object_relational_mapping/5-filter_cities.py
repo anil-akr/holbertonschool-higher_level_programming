@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""Script  that takes in an argument and displays all values in the
-states table of hbtn_0e_0_usa where name matches the argument"""
+"""Script that takes in the name of a state as argument and lists
+all cities of that state, using the database hbtn_0e_4_usa.
+Safe from SQL injection."""
 import MySQLdb
 import sys
 
@@ -19,8 +20,11 @@ if __name__ == "__main__":
     )
 
     cursor = db.cursor()
-    cursor.execute("SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id "
-    "WHERE states.name = %s ORDER BY cities.id ASC;", (state_name_searched,))
+    cursor.execute(
+        "SELECT cities.name FROM cities "
+        "JOIN states ON cities.state_id = states.id "
+        "WHERE states.name = %s ORDER BY cities.id ASC;",
+        (state_name_searched,))
     rows = cursor.fetchall()
 
     cities_names = []
