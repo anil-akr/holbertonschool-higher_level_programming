@@ -30,7 +30,7 @@ if __name__ == "__main__":
     cities_names = []
     for row in rows:
         cities_names.append(row[0])
-    
+
     print(", ".join(cities_names))
 
     cursor.close()

@@ -21,8 +21,8 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
     cursor.execute("SELECT * FROM states WHERE name = %s "
-                    "ORDER BY id ASC;",
-                    (state_name_searched,))
+                   "ORDER BY id ASC",
+                   (state_name_searched,))
     rows = cursor.fetchall()
 
     for x in rows:
