@@ -23,7 +23,6 @@ if __name__ == "__main__":
 
     state = (session.query(State)
                     .filter(State.name == state_name_to_search)
-                    .order_by(State.id)
                     .first())
     if state is None:
         print("Not found")
